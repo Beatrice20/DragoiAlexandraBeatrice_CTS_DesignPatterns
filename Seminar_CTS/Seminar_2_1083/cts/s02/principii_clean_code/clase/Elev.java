@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class Elev extends Aplicant{
 	private int clasa;
 	private String tutore;
+	private static Integer sumaFinantata = 30;
 	
 	public int getClasa() {
 		return clasa;
@@ -19,12 +20,15 @@ public class Elev extends Aplicant{
 		this.tutore = tutore;
 	}
 	
-	
 	@Override
 	public String toString() {
 		return "Elev: Nume=" + nume + ", Prenume=" + prenume + ", Varsta="
 				+ varsta + ", Punctaj=" + punctaj + ", Nr_proiecte=" + nrProiecte  + ", DenumireProiect="
 				+ Arrays.toString(denumireProiect) + "Clasa=" + clasa + ", Tutore=" + tutore;
+	}
+	
+	public static void setSumaFinantata(Integer sumaFinantata) {
+		Elev.sumaFinantata = sumaFinantata;
 	}
 	
 	public Elev() {
@@ -38,10 +42,8 @@ public class Elev extends Aplicant{
 		this.tutore = tutore;
 	}
 	
-	public int finantare() {
-		int s=30;
-		System.out.println("Angajatul "+getNume()+" "+getPrenume()+" primeste"+s+" Euro/zi in proiect.");
-		return s;
+	public void afisareFinantare() {
+		System.out.println("Elevul " + super.getNume() + " " + super.getPrenume() + " primeste" + Elev.sumaFinantata + " Euro/zi in proiect.");
 	}
 	
 }
